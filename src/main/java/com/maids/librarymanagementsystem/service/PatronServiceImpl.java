@@ -29,6 +29,8 @@ public class PatronServiceImpl implements PatronService{
     public List<PatronTO> getAllPatrons() {
         List<Patron>patronList=patronRepository.findAll();
         List<PatronTO>patronTOList=new ArrayList<>();
+        if(patronList.size()==0)
+            return patronTOList;
         for(Patron patron:patronList){
             patronTOList.add(convertToTO(patron));
         }
@@ -107,7 +109,7 @@ public class PatronServiceImpl implements PatronService{
             int count=borrowingRecordRepository.getBorrowingRecordsCountByPatronId(id);
             if(count==0){
                 patronRepository.delete(patron);
-                return "patron Deleted Successfully!";
+                return "Patron Deleted Successfully!";
             }else {
                 throw new ConflictException("cannot remove patron until he returns his books");
             }

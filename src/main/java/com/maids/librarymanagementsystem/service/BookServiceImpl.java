@@ -30,7 +30,10 @@ public class BookServiceImpl implements BookService{
     public List<BookTO> getAllBooks() {
         List<Book>bookList=bookRepository.findAll();
         List<BookTO>bookTOList=new ArrayList<>();
-        for(Book book:bookList){
+        if(bookList.size()==0)
+            return bookTOList;
+
+        for (Book book : bookList) {
             bookTOList.add(convertToTO(book));
         }
         return bookTOList;
