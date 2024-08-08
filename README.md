@@ -11,7 +11,8 @@ Prerequisites:
 
 Installation
 1.	Clone the repository:
-git clone https://github.com/EslamA99/Library-Management-System.git cd Library-Management-System
+git clone https://github.com/EslamA99/Library-Management-System.git 
+cd Library-Management-System
 2.	Update the application.properties file located in src/main/resources to match your MySQL database configuration:
 
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
@@ -20,15 +21,13 @@ spring.datasource.username=root
 spring.datasource.password=root
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto=create
+# spring.jpa.hibernate.ddl-auto=update
 
 3.	Build the project:
-
-mvn spring-boot:run
-
-4.	Run the application using the following command:
-mvn spring-boot:run
 The application should now be running on http://localhost:8080.
+mvn spring-boot:run
+
 
 
 API Endpoints:
